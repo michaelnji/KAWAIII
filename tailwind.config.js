@@ -2,7 +2,13 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {}
+		extend: {
+			fontFamily: {
+				head: ['Gochi Hand'],
+				body: ['Work Sans'],
+				logo: ['Aladin']
+			}
+		}
 	},
 	daisyui: {
 		themes: [
