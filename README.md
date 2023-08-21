@@ -8,7 +8,7 @@ This project serves as practice for me to learn mre about github collaborative f
 
 - Svelte & sveltekit
 - tailwindCSS & DaisyUI
-- [waifupics.im](https://waifupics.im) api
+- [waifu.im](https://waifu.im) api
 
 ### Contributing🎉️
 
