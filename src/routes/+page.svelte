@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FeaturedPics from '$lib/components/section/featuredPics.svelte';
 	import { formatNum, formatNumCurrency } from '../lib/scripts/numberFunctions';
 	const num: string = formatNumCurrency(2000.0, 'usd');
 </script>
@@ -48,3 +49,10 @@
 		>
 	</div>
 </div>
+
+<!-- featured waifu pics -->
+<section class="mt-24 w-full pb-12">
+	<h1 class=" text-6xl text-center font-head">#Featured-kawaiiis</h1>
+	<p class="mb-24 mt-1 text-md font-medium text-center">Most viewed pics on kawaiii</p>
+	<FeaturedPics />
+</section>
