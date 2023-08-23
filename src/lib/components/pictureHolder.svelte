@@ -18,7 +18,7 @@
 <div class="rounded-2xl bg-base-200 shadow-2xl flex flex-col overflow-hidden">
 	<div
 		class="overflow-hidden cursor-pointer"
-		on:click={() => {
+		on:click|self={() => {
 			$open = true;
 		}}
 		on:keydown
