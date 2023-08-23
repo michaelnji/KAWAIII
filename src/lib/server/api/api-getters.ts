@@ -28,7 +28,6 @@ async function getImages(
 				//@ts-ignore
 				const queryParams = new URLSearchParams(params);
 				const requestUrl = `${apiUrl}?${queryParams}`;
-				console.log(requestUrl);
 				let response;
 				response = await fetch(requestUrl);
 				if (response.ok) {
