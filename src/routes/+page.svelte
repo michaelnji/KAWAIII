@@ -1,7 +1,6 @@
 <script lang="ts">
 	import FeaturedPics from '$lib/components/section/featuredPics.svelte';
 	import { formatNum, formatNumCurrency } from '../lib/scripts/numberFunctions';
-	const num: string = formatNumCurrency(2000.0, 'usd');
 </script>
 
 <section class="sm:mt-6 mt-2">
@@ -14,7 +13,7 @@
 		<p class="mt-3 text-center text-xl max-w-3xl opacity-90">
 			Looking for a source of pretty waifu pics? check out our collection of over <b
 				class="underline underline-offset-1 text-primary"
-				>{formatNum(4900).split('.')[0]}+ saucy images</b
+				>{formatNum(1000).split('.')[0]}+ saucy images</b
 			>
 			for the pleasure of your 👀
 		</p>
@@ -52,7 +51,7 @@
 
 <!-- featured waifu pics -->
 <section class="mt-24 w-full pb-12">
-	<h1 class=" text-6xl text-center font-head">#Featured-kawaiiis</h1>
-	<p class="mb-24 mt-1 text-md font-medium text-center">Most viewed pics on kawaiii</p>
+	<h1 class=" text-6xl text-center font-head">#Featured kawaiiis</h1>
+	<p class="mb-16 mt-1 text-md font-medium text-center">Most viewed waifu pics on kawaiii</p>
 	<FeaturedPics />
 </section>

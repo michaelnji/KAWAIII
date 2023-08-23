@@ -5,9 +5,14 @@
 	import User from '$lib/components/icons/user.svelte';
 	import Image from './Image.svelte';
 	export let src = '';
-	export let views: number = 0;
+	// export let views: number = 0;
+	export let id: number = 0;
+	export let tags: any[] = [];
+	export let height: number = 0;
+	export let width: number = 0;
 	export let artistName: string = '6ixty3rror';
-
+	export let artistTwitter: string = '';
+	export let pictureExtension: string = 'jpg';
 	const { useModal, modalAttrs, titleAttrs, triggerAttrs, open } = createModal({
 		portal: null,
 		dismissible: true
@@ -15,19 +20,15 @@
 	$open = false;
 </script>
 
-<div class="rounded-2xl bg-base-200 shadow-2xl flex flex-col overflow-hidden">
+<div class={'rounded-2xl bg-base-200 shadow-2xl flex flex-col overflow-hidden w-full md:h-[700px]'}>
 	<div
-		class="overflow-hidden cursor-pointer"
-		on:click|self={() => {
+		class={'overflow-hidden cursor-pointer h-full'}
+		on:click={() => {
 			$open = true;
 		}}
 		on:keydown
 	>
-		<Image
-			{src}
-			alt="kawaiii"
-			classes="rounded-t-xl hover:scale-105 duration-500 ease-out transition"
-		/>
+		<Image {src} alt={''} classes="rounded-t-xl hover:scale-105 transition" />
 	</div>
 	<div class="p-3 bg-base-200 rounded-2xl">
 		<div class=" bg-base-100 rounded-lg p-3">
@@ -39,7 +40,7 @@
 							data-tip={'Artwork owner'}
 						>
 							<b class="text-primary"><User /></b>
-							<span class="font-head">@{artistName}</span>
+							<span class="font-head"><a href={artistTwitter} class=" link">@{artistName}</a></span>
 						</div>
 					</div>
 				</div>
@@ -47,17 +48,17 @@
 					<!-- <button class="btn btn-sm btn-ghost btn-primary !text-primary">
 								<Heart />
 							</button> -->
-					<div class="flex items-center gap-x-2 font-bold font-head text-lg text-primary">
+					<!-- <div class="flex items-center gap-x-2 font-bold font-head text-lg text-primary">
 						<Eye />
 						{views}
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="divider my-3" />
 			<div class="flex items-center gap-2 flex-wrap">
-				<div class="badge badge-primary font-bold !rounded-md">#waifu</div>
-				<div class="badge badge-primary font-bold !rounded-md">#maid</div>
-				<div class="badge badge-primary font-bold !rounded-md">#rent-a-girlfriend</div>
+				{#each tags as tag}
+					<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -66,7 +67,7 @@
 	<div
 		in:fade
 		on:keydown
-		on:click={() => {
+		on:click|self={() => {
 			$open = false;
 		}}
 		class="fixed z-30 left-0 top-0 w-screen h-screen flex items-center justify-center bg-gray-950 bg-opacity-90 p-8"
@@ -75,18 +76,18 @@
 			use:useModal
 			{...$modalAttrs}
 			in:fly={{ duration: 700, y: 400 }}
-			class=" overflow-hidden rounded-3xl md:max-w-2xl md:w-full flex flex-col md:flex-row relative"
+			class=" overflow-hidden rounded-3xl md:max-w-2xl w-full flex flex-col md:flex-row relative"
 		>
-			<img
+			<Image
 				{src}
-				alt="kawaiii"
-				class="md:rounded-tl-3xl md:rounded-bl-3xl hover:scale-105 duration-500 ease-out h-full hidden md:inline-block max-h-[32rem] transition"
+				alt=""
+				classes="md:rounded-tl-3xl md:rounded-bl-3xl !h-full hidden md:inline-block max-h-[32rem]"
 			/>
-			<div class="p-6 rounded-tr-3xl rounded-br-3xl md:w-full max-w-max bg-base-100">
+			<div class="p-6 rounded-tr-3xl rounded-br-3xl w-full bg-base-100">
 				<div class="w-full flex items-center justify-between">
 					<div class="badge badge-primary rounded-md font-bold">waifu.im</div>
 					<button
-						class="btn btn-ghost font-head btn-sm btn-square text-xl"
+						class="btn btn-ghost font-head btn-xs btn-square text-xl"
 						{...$triggerAttrs}
 						on:click={() => {
 							$open = false;
@@ -94,38 +95,38 @@
 					>
 				</div>
 
-				<h2 {...$titleAttrs} class="font-head text-3xl font-bold mt-2">
-					kawaiii<span class="text-primary">#1232</span>
+				<h2 {...$titleAttrs} class="font-head text-2xl font-bold mt-2">
+					kawaiii<span class="text-primary">#{id}</span>
 				</h2>
 				<div class="my-2 divider" />
 				<div class="flex flex-col items-start gap-y-5">
 					<div>
 						<p class="font-semibold">Artist</p>
 
-						<a href="/" class=" link text-primary">{artistName}</a>
+						<a href={artistTwitter} class=" link text-primary">{artistName}</a>
 					</div>
-					<div>
+					<!-- <div>
 						<p class="font-semibold">Views</p>
 
 						<p class="text-primary">{views}</p>
-					</div>
+					</div> -->
 					<div>
 						<p class="font-semibold mb-1">Tags</p>
 						<div class="flex items-center gap-2 flex-wrap">
-							<div class="badge badge-primary font-bold !rounded-md">#waifu</div>
-							<div class="badge badge-primary font-bold !rounded-md">#maid</div>
-							<div class="badge badge-primary font-bold !rounded-md">#rent-a-girlfriend</div>
+							{#each tags as tag}
+								<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+							{/each}
 						</div>
 					</div>
 					<div>
 						<p class="font-semibold mb-1">Type</p>
 
-						<div class="badge badge-neutral rounded-md font-bold">JPEG</div>
+						<div class="badge badge-neutral rounded-md font-bold">{pictureExtension}</div>
 					</div>
 					<div>
 						<p class="font-semibold mb-1">Size</p>
 
-						<div class="badge badge-neutral rounded-md font-bold">2000px * 1024px</div>
+						<div class="badge badge-neutral rounded-md font-bold">{height}px * {width}px</div>
 					</div>
 				</div>
 			</div>
