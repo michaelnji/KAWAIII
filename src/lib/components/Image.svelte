@@ -28,28 +28,20 @@
 			</span>
 		</div>
 	{/if}
-	<img
-		{src}
-		{alt}
-		class={classes}
-		class:loaded
-		bind:this={thisImage}
-		class:!h-[500px]={!loaded}
-		loading="lazy"
-	/>
+	<img {src} {alt} class={classes} class:loaded bind:this={thisImage} loading="lazy" />
 </figure>
 
 <style>
 	img {
-		@apply blur-md transition ease-in-out duration-1000 object-cover;
+		@apply blur-md transition ease-in-out duration-1000 w-full object-cover h-full;
 		/* opacity: 0; */
 		background-color: transparent;
-		background-image: url('/lazy.svg');
+		background-image: linear-gradient(173deg, #fbda61 10%, #ff5acd 90%);
 	}
 	img.loaded {
 		@apply blur-0 object-cover;
 		background-image: none;
-		opacity: 1;
+		opacity: 1 !important;
 		height: auto;
 	}
 </style>
