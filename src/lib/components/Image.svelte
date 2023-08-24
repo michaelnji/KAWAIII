@@ -5,19 +5,20 @@
 	export let alt;
 	export let classes;
 
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	let loaded = false;
 	let thisImage;
-
+	const dispatch = createEventDispatcher();
 	onMount(() => {
 		thisImage.onload = () => {
 			loaded = true;
+			dispatch('loadedImg');
 		};
 	});
 </script>
 
-<figure class="relative border border-base-content border-opacity-5">
+<figure class="relative border border-base-content border-opacity-5 h-full">
 	{#if alt && alt !== ''}
 		<div
 			class="tooltip absolute left-4 top-4 z-10 tooltip-right tooltip-info"
@@ -28,7 +29,7 @@
 			</span>
 		</div>
 	{/if}
-	<img {src} {alt} class={classes} class:loaded bind:this={thisImage} loading="lazy" />
+	<img {src} {alt} class={classes + ' !h-full'} class:loaded bind:this={thisImage} loading="lazy" />
 </figure>
 
 <style>

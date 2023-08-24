@@ -8,7 +8,7 @@
 	let ready: boolean = false;
 	onMount(async () => {
 		imageData = await getImagesClient();
-		imageData = imageData.filter((e: any, i: number) => i < 10);
+		imageData = imageData.filter((e: any, i: number) => i < 3);
 		ready = true;
 	});
 </script>
@@ -29,6 +29,7 @@
 							tags={image.tags}
 							id={image.image_id}
 							artistName={image.artist.name}
+							imgSize={image.byte_size}
 						/>
 					{:else}
 						<PictureHolder
@@ -38,6 +39,7 @@
 							height={image.height}
 							tags={image.tags}
 							artistName={'no_artist'}
+							imgSize={image.byte_size}
 						/>
 					{/if}
 				{/each}

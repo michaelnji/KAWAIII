@@ -4,7 +4,7 @@ import { handleError } from '$lib/scripts/helper/errorHandler';
 
 async function getImages(
 	many: boolean = true,
-	height: number = 1200,
+	height: number = 2000,
 	tag?: string | null
 ): Promise<any> {
 	if (tag) {
@@ -19,7 +19,7 @@ async function getImages(
 				const apiUrl = 'https://api.waifu.im/search';
 				const params = {
 					many,
-					height: `<=${height}`,
+					height: `<${height}`,
 					included_tags
 				};
 

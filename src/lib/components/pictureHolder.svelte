@@ -4,6 +4,7 @@
 	import Eye from '$lib/components/icons/eye.svelte';
 	import User from '$lib/components/icons/user.svelte';
 	import Image from './Image.svelte';
+	import { round } from 'mathjs';
 	export let src = '';
 	// export let views: number = 0;
 	export let id: number = 0;
@@ -13,46 +14,55 @@
 	export let artistName: string = '6ixty3rror';
 	export let artistTwitter: string = '';
 	export let pictureExtension: string = 'jpg';
+	export let imgSize: number = 0;
 	const { useModal, modalAttrs, titleAttrs, triggerAttrs, open } = createModal({
 		portal: null,
 		dismissible: true
 	});
 	$open = false;
+	let disableImg = true;
 </script>
 
 <div class={'rounded-2xl bg-base-200 shadow-2xl flex flex-col overflow-hidden w-full md:h-[700px]'}>
 	<div
 		class={'overflow-hidden cursor-pointer h-full'}
 		on:click={() => {
-			$open = true;
+			if (!disableImg) $open = true;
 		}}
 		on:keydown
 	>
-		<Image {src} alt={''} classes="rounded-t-xl hover:scale-105 transition" />
+		<Image
+			{src}
+			alt={''}
+			classes="rounded-t-xl hover:scale-105 transition"
+			on:loadedImg={() => {
+				disableImg = false;
+			}}
+		/>
 	</div>
 	<div class="p-3 bg-base-200 rounded-2xl">
 		<div class=" bg-base-100 rounded-lg p-3">
 			<div class="flex items-center justify-between">
-				<div class="flex items-center gap-x-2">
+				<div class="flex items-center gap-x-2 justify-between w-full">
 					<div class="  font-head text-lg">
 						<div
 							class="tooltip tooltip-primary flex items-center gap-x-2 font-body"
 							data-tip={'Artwork owner'}
 						>
-							<b class="text-primary"><User /></b>
-							<span class="font-head"><a href={artistTwitter} class=" link">@{artistName}</a></span>
+							<b class="text-primary text-sm">By</b>
+							<span class="text-sm font-medium"
+								><a href={artistTwitter} class=" link">@{artistName}</a></span
+							>
 						</div>
 					</div>
+					<span class="text-primary font-head">#{id}</span>
 				</div>
-				<div class="flex items-center gap-x-2">
-					<!-- <button class="btn btn-sm btn-ghost btn-primary !text-primary">
-								<Heart />
-							</button> -->
-					<!-- <div class="flex items-center gap-x-2 font-bold font-head text-lg text-primary">
+				<!-- <div class="flex items-center gap-x-2">
+					<div class="flex items-center gap-x-2 font-bold font-head text-sm  text-primary">
 						<Eye />
-						{views}
-					</div> -->
-				</div>
+						{200}
+					</div>
+				</div> -->
 			</div>
 			<div class="divider my-3" />
 			<div class="flex items-center gap-2 flex-wrap">
@@ -76,12 +86,12 @@
 			use:useModal
 			{...$modalAttrs}
 			in:fly={{ duration: 700, y: 400 }}
-			class=" overflow-hidden rounded-3xl md:max-w-2xl w-full flex flex-col md:flex-row relative"
+			class=" overflow-hidden rounded-3xl md:max-w-3xl w-full flex flex-col md:flex-row relative max-h-max"
 		>
-			<Image
+			<img
 				{src}
 				alt=""
-				classes="md:rounded-tl-3xl md:rounded-bl-3xl !h-full hidden md:inline-block max-h-[32rem]"
+				class="md:rounded-tl-3xl md:rounded-bl-3xl hidden md:inline-block h-[500px]"
 			/>
 			<div class="p-6 rounded-tr-3xl rounded-br-3xl w-full bg-base-100">
 				<div class="w-full flex items-center justify-between">
@@ -119,12 +129,19 @@
 						</div>
 					</div>
 					<div>
+						<p class="font-semibold mb-1">Size</p>
+
+						<div class="badge badge-neutral rounded-md font-bold">
+							{round(imgSize / 1024 / 1024, 2)}mb
+						</div>
+					</div>
+					<div>
 						<p class="font-semibold mb-1">Type</p>
 
 						<div class="badge badge-neutral rounded-md font-bold">{pictureExtension}</div>
 					</div>
 					<div>
-						<p class="font-semibold mb-1">Size</p>
+						<p class="font-semibold mb-1">Dimensions</p>
 
 						<div class="badge badge-neutral rounded-md font-bold">{height}px * {width}px</div>
 					</div>
