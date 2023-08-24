@@ -5,14 +5,15 @@
 	export let alt;
 	export let classes;
 
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	let loaded = false;
 	let thisImage;
-
+	const dispatch = createEventDispatcher();
 	onMount(() => {
 		thisImage.onload = () => {
 			loaded = true;
+			dispatch('loadedImg');
 		};
 	});
 </script>

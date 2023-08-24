@@ -19,17 +19,25 @@
 		dismissible: true
 	});
 	$open = false;
+	let disableImg = true;
 </script>
 
 <div class={'rounded-2xl bg-base-200 shadow-2xl flex flex-col overflow-hidden w-full md:h-[700px]'}>
 	<div
 		class={'overflow-hidden cursor-pointer h-full'}
 		on:click={() => {
-			$open = true;
+			if (!disableImg) $open = true;
 		}}
 		on:keydown
 	>
-		<Image {src} alt={''} classes="rounded-t-xl hover:scale-105 transition" />
+		<Image
+			{src}
+			alt={''}
+			classes="rounded-t-xl hover:scale-105 transition"
+			on:loadedImg={() => {
+				disableImg = false;
+			}}
+		/>
 	</div>
 	<div class="p-3 bg-base-200 rounded-2xl">
 		<div class=" bg-base-100 rounded-lg p-3">
