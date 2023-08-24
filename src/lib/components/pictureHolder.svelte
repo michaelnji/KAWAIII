@@ -48,8 +48,10 @@
 							class="tooltip tooltip-primary flex items-center gap-x-2 font-body"
 							data-tip={'Artwork owner'}
 						>
-							<b class="text-primary"><User /></b>
-							<span class="font-head"><a href={artistTwitter} class=" link">@{artistName}</a></span>
+							<b class="text-primary">By:</b>
+							<span class="text-sm font-medium"
+								><a href={artistTwitter} class=" link">@{artistName}</a></span
+							>
 						</div>
 					</div>
 				</div>
@@ -85,12 +87,12 @@
 			use:useModal
 			{...$modalAttrs}
 			in:fly={{ duration: 700, y: 400 }}
-			class=" overflow-hidden rounded-3xl md:max-w-2xl w-full flex flex-col md:flex-row relative"
+			class=" overflow-hidden rounded-3xl md:max-w-3xl w-full flex flex-col md:flex-row relative max-h-max"
 		>
-			<Image
+			<img
 				{src}
 				alt=""
-				classes="md:rounded-tl-3xl md:rounded-bl-3xl !h-full hidden md:inline-block max-h-[32rem]"
+				class="md:rounded-tl-3xl md:rounded-bl-3xl hidden md:inline-block h-[500px]"
 			/>
 			<div class="p-6 rounded-tr-3xl rounded-br-3xl w-full bg-base-100">
 				<div class="w-full flex items-center justify-between">
@@ -138,7 +140,7 @@
 						<div class="badge badge-neutral rounded-md font-bold">{pictureExtension}</div>
 					</div>
 					<div>
-						<p class="font-semibold mb-1">Size</p>
+						<p class="font-semibold mb-1">Dimensions</p>
 
 						<div class="badge badge-neutral rounded-md font-bold">{height}px * {width}px</div>
 					</div>

@@ -8,7 +8,7 @@
 	let ready: boolean = false;
 	onMount(async () => {
 		imageData = await getImagesClient();
-		imageData = imageData.filter((e: any, i: number) => i < 10);
+		imageData = imageData.filter((e: any, i: number) => i < 3);
 		ready = true;
 	});
 </script>
