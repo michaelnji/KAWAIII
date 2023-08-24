@@ -68,8 +68,16 @@
 			</div>
 			<div class="divider my-3" />
 			<div class="flex items-center gap-2 flex-wrap">
-				{#each tags as tag}
-					<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+				{#each tags as tag, i}
+					{#if i === tags.length - 1 && tags.length > 2}
+						<div class="tooltip tooltip-info tooltip-left font-body" data-tip={tag.description}>
+							<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+						</div>
+					{:else}
+						<div class="tooltip tooltip-info tooltip-right font-body" data-tip={tag.description}>
+							<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+						</div>
+					{/if}
 				{/each}
 			</div>
 		</div>
@@ -122,7 +130,9 @@
 						<p class="font-semibold mb-1">Tags</p>
 						<div class="flex items-center gap-2 flex-wrap">
 							{#each tags as tag}
-								<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+								<div class="tooltip tooltip-primary font-body" data-tip={tag.description}>
+									<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+								</div>
 							{/each}
 						</div>
 					</div>
