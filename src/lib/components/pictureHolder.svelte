@@ -23,7 +23,9 @@
 	let disableImg = true;
 </script>
 
-<div class={'rounded-2xl bg-base-200 shadow-2xl flex flex-col overflow-hidden w-full md:h-[700px]'}>
+<div
+	class={'rounded-2xl bg-base-200 shadow-2xl flex flex-col overflow-hidden w-full min-h-[700px] md:max-h-[700px] h-full'}
+>
 	<div
 		class={'overflow-hidden cursor-pointer h-full'}
 		on:click={() => {
