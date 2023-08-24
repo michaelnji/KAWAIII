@@ -1,10 +1,11 @@
 // functions to get data from waifu.im
 
 import { handleError } from '$lib/scripts/helper/errorHandler';
+import { propsToArray, search } from '$lib/scripts/helper/utils';
 
 async function getImages(
 	many: boolean = true,
-	height: number = 2000,
+	height: number = 4000,
 	tag?: string | null
 ): Promise<any> {
 	if (tag) {
@@ -13,13 +14,15 @@ async function getImages(
 			if (tags) {
 				let included_tags: string[] = [];
 				let excluded_tags: string[] = [];
-				const { versatile: versatileTags } = tags;
+				const versatileTags = tags;
 				included_tags = versatileTags.filter((e: string) => e === tag);
 
 				const apiUrl = 'https://api.waifu.im/search';
 				const params = {
 					many,
 					height: `<${height}`,
+					width: '<=1600',
+
 					included_tags
 				};
 
@@ -30,22 +33,15 @@ async function getImages(
 				const requestUrl = `${apiUrl}?${queryParams}`;
 				let response;
 				response = await fetch(requestUrl);
+
 				if (response.ok) {
 					let finalImages: any[] = [];
 					const data = await response.json();
+					console.log(data.images);
 					const { images } = data;
-					let check: boolean = false;
 					images.forEach((image: any) => {
-						image.tags.forEach((t: any) => {
-							if (t.name === tag) {
-								check = true;
-							}
-						});
-
-						if (check) {
-							finalImages = [...finalImages, image];
-						}
-						check = false;
+						let tags = propsToArray('name', image.tags);
+						if (search(tag, tags)) finalImages = [...finalImages, image];
 					});
 
 					return finalImages;
@@ -53,6 +49,7 @@ async function getImages(
 				return undefined;
 			}
 		} catch (error: any) {
+			console.log(error);
 			// handle error due to internet connections
 			const info = { ...error };
 			if (error.message == 'fetch failed') {
@@ -67,9 +64,8 @@ async function getImages(
 		const apiUrl = 'https://api.waifu.im/search';
 		const params = {
 			many,
-			// included_tags: 'maid',
-
-			height: `>=${height}`
+			height: `<${height}`,
+			width: '<=1600'
 		};
 
 		// ts-ignore is needed so typescript ignores type checking for `many` which is a boolean

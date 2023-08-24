@@ -68,8 +68,16 @@
 			</div>
 			<div class="divider my-3" />
 			<div class="flex items-center gap-2 flex-wrap">
-				{#each tags as tag}
-					<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+				{#each tags as tag, i}
+					{#if i === tags.length - 1 && tags.length > 2}
+						<div class="tooltip tooltip-info tooltip-left font-body" data-tip={tag.description}>
+							<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+						</div>
+					{:else}
+						<div class="tooltip tooltip-info tooltip-right font-body" data-tip={tag.description}>
+							<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+						</div>
+					{/if}
 				{/each}
 			</div>
 		</div>
@@ -88,13 +96,9 @@
 			use:useModal
 			{...$modalAttrs}
 			in:fly={{ duration: 700, y: 400 }}
-			class=" overflow-hidden rounded-3xl md:max-w-3xl w-full flex flex-col md:flex-row relative max-h-max"
+			class=" overflow-hidden rounded-3xl md:max-w-[55rem] w-full grid grid-cols-1 md:grid-cols-2 relative"
 		>
-			<img
-				{src}
-				alt=""
-				class="md:rounded-tl-3xl md:rounded-bl-3xl hidden md:inline-block h-[500px]"
-			/>
+			<img {src} alt="" class="md:rounded-tl-3xl md:rounded-bl-3xl hidden md:inline-block" />
 			<div class="p-6 rounded-tr-3xl rounded-br-3xl w-full bg-base-100">
 				<div class="w-full flex items-center justify-between">
 					<div class="badge badge-primary rounded-md font-bold">waifu.im</div>
@@ -111,7 +115,7 @@
 					kawaiii<span class="text-primary">#{id}</span>
 				</h2>
 				<div class="my-2 divider" />
-				<div class="flex flex-col items-start gap-y-5">
+				<div class="flex flex-col items-start gap-5">
 					<div>
 						<p class="font-semibold">Artist</p>
 
@@ -122,11 +126,13 @@
 
 						<p class="text-primary">{views}</p>
 					</div> -->
-					<div>
+					<div class="w-full">
 						<p class="font-semibold mb-1">Tags</p>
 						<div class="flex items-center gap-2 flex-wrap">
 							{#each tags as tag}
-								<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+								<div class="tooltip tooltip-primary font-body" data-tip={tag.description}>
+									<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+								</div>
 							{/each}
 						</div>
 					</div>

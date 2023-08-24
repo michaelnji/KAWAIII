@@ -7,25 +7,25 @@
 	let imageData: any;
 	let ready: boolean = false;
 	onMount(async () => {
-		imageData = await getImagesByTagClient('marin-kitagawa');
+		imageData = await getImagesByTagClient('selfies');
 		// imageData = imageData.filter((e: any, i: number) => i < 5);
 		ready = true;
 	});
 </script>
 
-<h1 class=" text-6xl text-center font-head">
-	#Featured: <small class="font-body font-bold block lg:inline-block">Marin Kitagawa</small>
+<h1 class=" text-6xl mb-16 text-center font-head">
+	#Kawaiii: <small class="font-body font-bold">Selfies</small>
 </h1>
-<p class="mb-16 mt-1 max-w-xl mx-auto text-base font-medium text-center">
+<!-- <p class="mb-16 mt-1 max-w-xl mx-auto text-base font-medium text-center">
 	One of two main protagonists (alongside Wakana Gojo) in the anime and manga series My Dress-Up
 	Darling.
-</p>
+</p> -->
 <div class="w-full">
 	<div class="w-full">
 		{#if ready && imageData && !imageData.error}
 			<div
 				in:fade
-				class="w-full place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+				class="w-full place-items-center place-content-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
 			>
 				{#each imageData as image}
 					{#if image.artist}
@@ -51,9 +51,9 @@
 					{/if}
 				{/each}
 			</div>
-			<!-- <div class="mt-12 w-full flex items-center justify-center">
-				<button class="btn btn-outline btn-primary btn-wide btn-lg">Load More</button>
-			</div> -->
+			<div class="mt-12 w-full flex items-center justify-center">
+				<a href="/tags/oppai" class="btn btn-outline btn-primary btn-wide btn-lg">See More</a>
+			</div>
 		{:else if imageData === null || (imageData && imageData.error)}
 			<div
 				class=" max-w-max mx-auto flex items-center justify-start gap-x-5 alert bg-primary"

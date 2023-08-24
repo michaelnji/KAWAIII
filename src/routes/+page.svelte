@@ -1,9 +1,14 @@
 <script lang="ts">
+	import CTASection from './../lib/components/section/CTASection.svelte';
+	import MaidSection from './../lib/components/section/maidSection.svelte';
 	import FeaturedPics from '$lib/components/section/featuredPics.svelte';
+	import OppaiSection from '$lib/components/section/oppaiSection.svelte';
 	import { formatNum, formatNumCurrency } from '../lib/scripts/numberFunctions';
+	import Footer from '$lib/components/footer.svelte';
+	import SelfieSection from '$lib/components/section/selfieSection.svelte';
 </script>
 
-<section class="sm:mt-6 mt-2">
+<section class="sm:mt-6 mt-2 px-6">
 	<!-- hero section -->
 	<div class="w-full min-h-full place-content-center grid grid-cols-1 place-items-center my-auto">
 		<!-- text -->
@@ -15,7 +20,7 @@
 				class="underline underline-offset-1 text-primary"
 				>{formatNum(1000).split('.')[0]}+ saucy images</b
 			>
-			for the pleasure of your 👀
+			for the joy of your 👀s
 		</p>
 		<div class="flex gap-2 mt-8 items-center justify-center flex-wrap !mx-auto">
 			<a href="/#all" class="btn btn-wide btn-primary">View images</a>
@@ -50,8 +55,31 @@
 </div>
 
 <!-- featured waifu pics -->
-<section class="mt-24 w-full pb-12">
-	<h1 class=" text-6xl text-center font-head">#Featured kawaiiis</h1>
-	<p class="mb-16 mt-1 text-md font-medium text-center">Most viewed waifu pics on kawaiii</p>
+<section class="mt-24 px-6 w-full pb-12">
 	<FeaturedPics />
+</section>
+
+<!-- oppai waifu pics -->
+<section class="mt-24 px-6 w-full pb-12">
+	<OppaiSection />
+</section>
+
+<!-- maid waifu pics -->
+<section class="mt-24 px-6 w-full pb-12">
+	<MaidSection />
+</section>
+
+<!-- selfies waifu pics -->
+<section class="mt-24 px-6 w-full pb-12">
+	<SelfieSection />
+</section>
+
+<!-- cta waifu pics -->
+<section class="mt-24 px-6 w-full pb-12">
+	<CTASection />
+</section>
+
+<!-- footers -->
+<section class="mt-24 w-full">
+	<Footer />
 </section>

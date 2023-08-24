@@ -17,7 +17,7 @@
 	<header>
 		<Navbar />
 	</header>
-	<main class="pt-24 mx-6 !h-full">
+	<main class="pt-24 !h-full">
 		<slot />
 	</main>
 </div>
