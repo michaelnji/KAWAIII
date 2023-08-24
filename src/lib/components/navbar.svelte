@@ -60,7 +60,7 @@
 								<li in:fade>
 									<a
 										href={`/tags/${tag}`}
-										class="font-medium"
+										class="font-medium capitalize"
 										class:bg-primary={currentString === `/tags/${tag}`}
 										class:bg-opacity-30={currentString === `/tags/${tag}`}
 										class:text-primary={currentString === `/tags/${tag}`}>{tag}</a

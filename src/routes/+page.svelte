@@ -15,7 +15,7 @@
 				class="underline underline-offset-1 text-primary"
 				>{formatNum(1000).split('.')[0]}+ saucy images</b
 			>
-			for the pleasure of your 👀
+			for the joy of your 👀s
 		</p>
 		<div class="flex gap-2 mt-8 items-center justify-center flex-wrap !mx-auto">
 			<a href="/#all" class="btn btn-wide btn-primary">View images</a>
@@ -51,7 +51,5 @@
 
 <!-- featured waifu pics -->
 <section class="mt-24 w-full pb-12">
-	<h1 class=" text-6xl text-center font-head">#Featured kawaiiis</h1>
-	<p class="mb-16 mt-1 text-md font-medium text-center">Most viewed waifu pics on kawaiii</p>
 	<FeaturedPics />
 </section>
