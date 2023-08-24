@@ -13,6 +13,7 @@
 	export let artistName: string = '6ixty3rror';
 	export let artistTwitter: string = '';
 	export let pictureExtension: string = 'jpg';
+	export let imgSize: number = 0;
 	const { useModal, modalAttrs, titleAttrs, triggerAttrs, open } = createModal({
 		portal: null,
 		dismissible: true
@@ -117,6 +118,11 @@
 								<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
 							{/each}
 						</div>
+					</div>
+					<div>
+						<p class="font-semibold mb-1">Size</p>
+
+						<div class="badge badge-neutral rounded-md font-bold">{imgSize}mb</div>
 					</div>
 					<div>
 						<p class="font-semibold mb-1">Type</p>

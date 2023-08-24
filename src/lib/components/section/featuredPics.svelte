@@ -29,6 +29,7 @@
 							tags={image.tags}
 							id={image.image_id}
 							artistName={image.artist.name}
+							imgSize={image.byte_size}
 						/>
 					{:else}
 						<PictureHolder
@@ -38,6 +39,7 @@
 							height={image.height}
 							tags={image.tags}
 							artistName={'no_artist'}
+							imgSize={image.byte_size}
 						/>
 					{/if}
 				{/each}
