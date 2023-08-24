@@ -4,6 +4,7 @@
 	import Eye from '$lib/components/icons/eye.svelte';
 	import User from '$lib/components/icons/user.svelte';
 	import Image from './Image.svelte';
+	import { round } from 'mathjs';
 	export let src = '';
 	// export let views: number = 0;
 	export let id: number = 0;
@@ -42,28 +43,26 @@
 	<div class="p-3 bg-base-200 rounded-2xl">
 		<div class=" bg-base-100 rounded-lg p-3">
 			<div class="flex items-center justify-between">
-				<div class="flex items-center gap-x-2">
+				<div class="flex items-center gap-x-2 justify-between w-full">
 					<div class="  font-head text-lg">
 						<div
 							class="tooltip tooltip-primary flex items-center gap-x-2 font-body"
 							data-tip={'Artwork owner'}
 						>
-							<b class="text-primary">By:</b>
+							<b class="text-primary text-sm">By</b>
 							<span class="text-sm font-medium"
 								><a href={artistTwitter} class=" link">@{artistName}</a></span
 							>
 						</div>
 					</div>
+					<span class="text-primary font-head">#{id}</span>
 				</div>
-				<div class="flex items-center gap-x-2">
-					<!-- <button class="btn btn-sm btn-ghost btn-primary !text-primary">
-								<Heart />
-							</button> -->
-					<!-- <div class="flex items-center gap-x-2 font-bold font-head text-lg text-primary">
+				<!-- <div class="flex items-center gap-x-2">
+					<div class="flex items-center gap-x-2 font-bold font-head text-sm  text-primary">
 						<Eye />
-						{views}
-					</div> -->
-				</div>
+						{200}
+					</div>
+				</div> -->
 			</div>
 			<div class="divider my-3" />
 			<div class="flex items-center gap-2 flex-wrap">
@@ -132,7 +131,9 @@
 					<div>
 						<p class="font-semibold mb-1">Size</p>
 
-						<div class="badge badge-neutral rounded-md font-bold">{imgSize}mb</div>
+						<div class="badge badge-neutral rounded-md font-bold">
+							{round(imgSize / 1024 / 1024, 2)}mb
+						</div>
 					</div>
 					<div>
 						<p class="font-semibold mb-1">Type</p>
