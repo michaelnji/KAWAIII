@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Github from './icons/github.svelte';
-
+	import i from '$lib/images/LOGO.png';
 	let currentString: string;
 	$: currentString = $page.url.pathname;
 </script>
@@ -71,11 +71,9 @@
 				</li>
 			</ul>
 		</div>
-		<a
-			href="/"
-			class=" tracking-relaxed text-xl lg:text-2xl font-bold font-head capitalize text-primary"
-			>kawa<span class="text-orange-500">iii</span>🍑</a
-		>
+		<a href="/" class=" h-[28px] w-[28px]">
+			<img src={i} alt="kawaiii logo" />
+		</a>
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal px-1 lg:space-x-2">
