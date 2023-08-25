@@ -7,14 +7,14 @@
 	let imageData: any;
 	let ready: boolean = false;
 	onMount(async () => {
-		imageData = await getImagesByTagClient('selfies');
+		imageData = await getImagesByTagClient('uniform');
 		// imageData = imageData.filter((e: any, i: number) => i < 5);
 		ready = true;
 	});
 </script>
 
 <h1 class=" text-6xl mb-16 text-center font-head">
-	#Kawaiii: <small class="font-body font-bold">Selfies</small>
+	#Kawaiii: <small class="font-body font-bold">Uniform</small>
 </h1>
 <!-- <p class="mb-16 mt-1 max-w-xl mx-auto text-base font-medium text-center">
 	One of two main protagonists (alongside Wakana Gojo) in the anime and manga series My Dress-Up

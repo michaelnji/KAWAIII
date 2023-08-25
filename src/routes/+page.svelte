@@ -5,7 +5,7 @@
 	import OppaiSection from '$lib/components/section/oppaiSection.svelte';
 	import { formatNum, formatNumCurrency } from '../lib/scripts/numberFunctions';
 	import Footer from '$lib/components/footer.svelte';
-	import SelfieSection from '$lib/components/section/selfieSection.svelte';
+	import UniformSection from '$lib/components/section/uniformSection.svelte';
 </script>
 
 <section class="sm:mt-6 mt-2 px-6">
@@ -71,7 +71,7 @@
 
 <!-- selfies waifu pics -->
 <section class="mt-24 px-6 w-full pb-12">
-	<SelfieSection />
+	<UniformSection />
 </section>
 
 <!-- cta waifu pics -->

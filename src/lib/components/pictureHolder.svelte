@@ -17,7 +17,7 @@
 	export let imgSize: number = 0;
 	const { useModal, modalAttrs, titleAttrs, triggerAttrs, open } = createModal({
 		portal: null,
-		dismissible: true
+		dismissible: false
 	});
 	$open = false;
 	let disableImg = true;
@@ -52,12 +52,12 @@
 							data-tip={'Artwork owner'}
 						>
 							<b class="text-primary text-sm">By</b>
-							<span class="text-sm font-medium"
-								><a href={artistTwitter} class=" link">@{artistName}</a></span
+							<span class="text-sm md:text-lg font-medium"
+								><a href={artistTwitter} class="link">{artistName}</a></span
 							>
 						</div>
 					</div>
-					<span class="text-primary font-head">#{id}</span>
+					<span class="text-primary font-bold italic">#{id}</span>
 				</div>
 				<!-- <div class="flex items-center gap-x-2">
 					<div class="flex items-center gap-x-2 font-bold font-head text-sm  text-primary">
@@ -66,16 +66,16 @@
 					</div>
 				</div> -->
 			</div>
-			<div class="divider my-3" />
+			<div class="divider my-1" />
 			<div class="flex items-center gap-2 flex-wrap">
 				{#each tags as tag, i}
 					{#if i === tags.length - 1 && tags.length > 2}
-						<div class="tooltip tooltip-info tooltip-left font-body" data-tip={tag.description}>
-							<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+						<div class="badge badge-primary font-bold !rounded-md">
+							# <a href={`/tags/${tag.name}`}>{tag.name}</a>
 						</div>
 					{:else}
-						<div class="tooltip tooltip-info tooltip-right font-body" data-tip={tag.description}>
-							<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+						<div class="badge badge-primary font-bold !rounded-md">
+							# <a href={`/tags/${tag.name}`}>{tag.name}</a>
 						</div>
 					{/if}
 				{/each}
@@ -86,10 +86,6 @@
 {#if $open}
 	<div
 		in:fade
-		on:keydown
-		on:click|self={() => {
-			$open = false;
-		}}
 		class="fixed z-30 left-0 top-0 w-screen h-screen flex items-center justify-center bg-gray-950 bg-opacity-90 p-8"
 	>
 		<div

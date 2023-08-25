@@ -108,9 +108,9 @@
 					>
 					<ul class="p-3 space-y-2 dropdown-content bg-base-100 !min-w-[13rem] rounded-md">
 						{#if isLoading}
-							<li class="flex justify-center items-center">
-								<div class="loading-spinner loading loading-xs" />
-							</li>
+							<div class="flex justify-center items-center">
+								<div class=" loading w-[0.9rem]" />
+							</div>
 						{:else if isArray(tags)}
 							{#each tags as tag}
 								<li>
