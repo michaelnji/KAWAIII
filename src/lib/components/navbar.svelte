@@ -87,9 +87,9 @@
 				</li>
 			</ul>
 		</div>
-		<a href="/" class=" h-[28px] w-[28px]">
-			<img src={i} alt="kawaiii logo" />
-		</a>
+		<div class=" font-bold flex !items-center gap-x-2 text-xl font-head">
+			<img src={i} alt="kawaiii logo" class="h-[26px] w-[26px]" /> Kawaiii
+		</div>
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal px-1 lg:space-x-2">
@@ -147,6 +147,6 @@
 		</ul>
 	</div>
 	<div class="navbar-end">
-		<a href="https://github.com/michaelnji/kawaiii" class="btn bg-black !text-white"><Github /></a>
+		<a href="https://github.com/michaelnji/kawaiii" class="btn !text-white btn-ghost"><Github /></a>
 	</div>
 </div>

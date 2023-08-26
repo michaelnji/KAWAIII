@@ -36,7 +36,7 @@
 						width={image.width}
 						height={image.height}
 						tags={image.tags}
-						artistName={'no_artist'}
+						artistName={'waifu.im'}
 						imgSize={image.byte_size}
 					/>
 				{/if}

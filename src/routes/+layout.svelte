@@ -2,6 +2,7 @@
 	import Navbar from '$lib/components/navbar.svelte';
 	import './styles.css';
 	import '@fontsource/aladin';
+	import '@fontsource/gochi-hand';
 	import '@fontsource/work-sans';
 	import '@fontsource/work-sans/400.css';
 	import '@fontsource/work-sans/500.css';
