@@ -7,10 +7,10 @@
 	import { random, round } from 'mathjs';
 	export let src = '';
 	// export let views: number = 0;
-	export let id: number = round(random(1999, 9999));
+	export let id: number;
 	export let tags: any[] = ['waifu'];
-	export let height: number = 2000;
-	export let width: number = 1000;
+	export let height: number;
+	export let width: number;
 	export let artistName: string = 'waifu.pics';
 	export let artistTwitter: string = '';
 	export let pictureExtension: string = 'jpg';

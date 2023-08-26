@@ -9,8 +9,9 @@
 	import '@fontsource/work-sans/700.css';
 	import '@fontsource/work-sans/800.css';
 	import '@fontsource/work-sans/900.css';
-	// import '@fontsource/didact-gothic/400.css';
-	import '@fontsource/gochi-hand';
+	import '@fontsource/grandstander';
+	import '@fontsource/grandstander/900.css';
+	import '@fontsource/grandstander/800.css';
 	import { navigating } from '$app/stores';
 	import LoadingIcon from '$lib/components/loadingIcon.svelte';
 </script>

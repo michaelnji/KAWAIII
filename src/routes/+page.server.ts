@@ -6,6 +6,10 @@ import { isArray } from 'mathjs';
 
 /** @type {import('@sveltejs/kit').Load} */
 export const load = async () => {
+	const waifu: any = await getImages(true, 2000, 'waifu');
+
+	if (!isArray(waifu)) return !waifu ? { error: 'we seem to have encountered an error' } : waifu;
+
 	const marin: any = await getImages(true, 2000, 'marin-kitagawa');
 
 	if (!isArray(marin)) return !marin ? { error: 'we seem to have encountered an error' } : marin;
@@ -27,6 +31,7 @@ export const load = async () => {
 		oppai,
 		maid,
 		marin,
-		uniform
+		uniform,
+		waifu
 	};
 };
