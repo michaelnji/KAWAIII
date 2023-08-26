@@ -7,10 +7,10 @@
 	import { random, round } from 'mathjs';
 	export let src = '';
 	// export let views: number = 0;
-	export let id: number = round(random(1999, 9999));
+	export let id: number;
 	export let tags: any[] = ['waifu'];
-	export let height: number = 2000;
-	export let width: number = 1000;
+	export let height: number;
+	export let width: number;
 	export let artistName: string = 'waifu.pics';
 	export let artistTwitter: string = '';
 	export let pictureExtension: string = 'jpg';
@@ -67,7 +67,7 @@
 				</div> -->
 			</div>
 			<div class="divider my-1" />
-			<div class="flex items-center gap-2 flex-wrap">
+			<div class="flex items-center gap-2 font-head flex-wrap">
 				{#each tags as tag, i}
 					{#if i === tags.length - 1 && tags.length > 2}
 						<div class="badge badge-primary font-bold !rounded-md">
@@ -99,7 +99,7 @@
 				<div class="w-full flex items-center justify-between">
 					<div class="badge badge-primary rounded-md font-bold">waifu.im</div>
 					<button
-						class="btn btn-ghost font-head btn-xs btn-square text-xl"
+						class="btn btn-ghost font-logo btn-xs btn-square text-xl"
 						{...$triggerAttrs}
 						on:click={() => {
 							$open = false;
@@ -127,7 +127,7 @@
 						<div class="flex items-center gap-2 flex-wrap">
 							{#each tags as tag}
 								<div class="tooltip tooltip-primary font-body" data-tip={tag.description}>
-									<div class="badge badge-primary font-bold !rounded-md">#{tag.name}</div>
+									<div class="badge badge-primary font-bold !rounded-md font-head">#{tag.name}</div>
 								</div>
 							{/each}
 						</div>

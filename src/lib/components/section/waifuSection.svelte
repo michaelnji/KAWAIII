@@ -6,12 +6,11 @@
 </script>
 
 {#if imageData && isArray(imageData)}
-	<h1 id="all" class="text-6xl text-center font-head">
-		#Featured: <small class="font-body font-bold block lg:inline-block">Marin Kitagawa </small>
+	<h1 class="text-6xl text-center font-head">
+		#Featured: <small class="font-body font-bold block lg:inline-block">Waifu </small>
 	</h1>
 	<p class="mb-16 mt-1 max-w-xl mx-auto text-base font-medium text-center">
-		One of two main protagonists (alongside Wakana Gojo) in the anime and manga series My Dress-Up
-		Darling.
+		A female anime/manga character.
 	</p>
 	<div class="w-full">
 		<div class="w-full">
@@ -42,6 +41,9 @@
 						/>
 					{/if}
 				{/each}
+			</div>
+			<div class="mt-12 w-full flex items-center justify-center">
+				<a href="/tags/waifu" class="btn btn-outline btn-primary btn-wide btn-lg">See More</a>
 			</div>
 		</div>
 	</div>

@@ -2,6 +2,7 @@
 	import Navbar from '$lib/components/navbar.svelte';
 	import './styles.css';
 	import '@fontsource/aladin';
+	import '@fontsource/gochi-hand';
 	import '@fontsource/work-sans';
 	import '@fontsource/work-sans/400.css';
 	import '@fontsource/work-sans/500.css';
@@ -9,8 +10,9 @@
 	import '@fontsource/work-sans/700.css';
 	import '@fontsource/work-sans/800.css';
 	import '@fontsource/work-sans/900.css';
-	// import '@fontsource/didact-gothic/400.css';
-	import '@fontsource/gochi-hand';
+	import '@fontsource/grandstander';
+	import '@fontsource/grandstander/900.css';
+	import '@fontsource/grandstander/800.css';
 	import { navigating } from '$app/stores';
 	import LoadingIcon from '$lib/components/loadingIcon.svelte';
 </script>

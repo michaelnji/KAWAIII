@@ -4,9 +4,9 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				head: ['Gochi Hand'],
+				logo: ['Gochi Hand'],
 				body: ['Work Sans'],
-				logo: ['Aladin']
+				head: ['Grandstander']
 			}
 		}
 	},

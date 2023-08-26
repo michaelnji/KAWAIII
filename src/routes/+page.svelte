@@ -7,6 +7,7 @@
 	import { formatNum, formatNumCurrency } from '../lib/scripts/numberFunctions';
 	import Footer from '$lib/components/footer.svelte';
 	import UniformSection from '$lib/components/section/uniformSection.svelte';
+	import WaifuSection from '$lib/components/section/waifuSection.svelte';
 	export let data: any;
 	console.log(data);
 </script>
@@ -82,6 +83,11 @@
 			>
 		</div>
 	</div>
+
+	<!-- featured waifu pics -->
+	<section id="all" class="mt-24 px-6 w-full pb-12">
+		<WaifuSection imageData={data.waifu} />
+	</section>
 
 	<!-- featured waifu pics -->
 	<section class="mt-24 px-6 w-full pb-12">

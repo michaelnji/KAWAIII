@@ -17,6 +17,9 @@ dependencies:
   '@fontsource/gochi-hand':
     specifier: ^5.0.8
     version: 5.0.8
+  '@fontsource/grandstander':
+    specifier: ^5.0.8
+    version: 5.0.8
   '@fontsource/work-sans':
     specifier: ^5.0.8
     version: 5.0.8
@@ -386,6 +389,10 @@ packages:
 
   /@fontsource/gochi-hand@5.0.8:
     resolution: {integrity: sha512-lS+GD30Z/cuxTT2tFpEA2C+j1qRR5ituN7K5/s746zCQ25wHd+t8AvWJTMLGRHztQfxwXEJNLVbgBPV/FKwlrQ==}
+    dev: false
+
+  /@fontsource/grandstander@5.0.8:
+    resolution: {integrity: sha512-/ZTI3EYfGaGGXknrZ4ItXyy26/GBPTb18msVOsdtpBM5SLf4SoxGUigfUVLm4rMkadFeD9gBmosmebiuWiOBbA==}
     dev: false
 
   /@fontsource/work-sans@5.0.8:
