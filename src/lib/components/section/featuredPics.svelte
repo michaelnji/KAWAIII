@@ -1,28 +1,20 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
-	import { getImagesByTagClient } from '$lib/scripts/api/data/images';
-	import { onMount } from 'svelte';
 	import PictureHolder from '../pictureHolder.svelte';
-	import LoadingIcon from '../loadingIcon.svelte';
-	let imageData: any;
-	let ready: boolean = false;
-	onMount(async () => {
-		imageData = await getImagesByTagClient('marin-kitagawa');
-		imageData = imageData.filter((e: any, i: number) => i < 6);
-		ready = true;
-	});
+	import { isArray } from 'mathjs';
+	export let imageData: any;
 </script>
 
-<h1 class=" text-6xl text-center font-head">
-	#Featured: <small class="font-body font-bold block lg:inline-block">Marin Kitagawa</small>
-</h1>
-<p class="mb-16 mt-1 max-w-xl mx-auto text-base font-medium text-center">
-	One of two main protagonists (alongside Wakana Gojo) in the anime and manga series My Dress-Up
-	Darling.
-</p>
-<div class="w-full">
+{#if imageData && isArray(imageData)}
+	<h1 class="text-6xl text-center font-head">
+		#Featured: <small class="font-body font-bold block lg:inline-block">Marin Kitagawa </small>
+	</h1>
+	<p class="mb-16 mt-1 max-w-xl mx-auto text-base font-medium text-center">
+		One of two main protagonists (alongside Wakana Gojo) in the anime and manga series My Dress-Up
+		Darling.
+	</p>
 	<div class="w-full">
-		{#if ready && imageData && !imageData.error}
+		<div class="w-full">
 			<div
 				in:fade
 				class="w-full place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -51,32 +43,6 @@
 					{/if}
 				{/each}
 			</div>
-			<!-- <div class="mt-12 w-full flex items-center justify-center">
-				<button class="btn btn-outline btn-primary btn-wide btn-lg">Load More</button>
-			</div> -->
-		{:else if imageData === null || (imageData && imageData.error)}
-			<div
-				class=" max-w-max mx-auto flex items-center justify-start gap-x-5 alert bg-primary"
-				in:fly={{ duration: 700, y: 400 }}
-			>
-				<div
-					class="font-head h-[48px] w-[48px] rounded-full bg-primary-focus text-primary-content flex items-center justify-center text-4xl font-bold"
-				>
-					X
-				</div>
-				<div class="flex flex-col items-start justify-start gap-1">
-					<h2 class="text-3xl font-bold text-primary-content">An error occurred</h2>
-					<p class="text-primary-content">
-						{#if imageData && imageData.error}
-							{imageData.error}
-						{:else}
-							We seem to have encountered an error
-						{/if}
-					</p>
-				</div>
-			</div>
-		{:else}
-			<div class="w-full justify-center flex"><LoadingIcon /></div>
-		{/if}
+		</div>
 	</div>
-</div>
+{/if}

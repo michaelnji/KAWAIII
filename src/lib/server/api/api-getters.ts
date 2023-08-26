@@ -2,6 +2,7 @@
 
 import { handleError } from '$lib/scripts/helper/errorHandler';
 import { propsToArray, search } from '$lib/scripts/helper/utils';
+// import { random, round } from 'mathjs';
 
 async function getImages(
 	many: boolean = true,
@@ -9,6 +10,61 @@ async function getImages(
 	tag?: string | null
 ): Promise<any> {
 	if (tag) {
+		// if (search(tag, waifuPicsTags)) {
+		// 	try {
+		// 		const url: string = `https://api.waifu.pics/sfw/${tag}`;
+		// 		let response;
+		// 		response = await fetch(url);
+		// 		if (!response.ok) {
+		// 			const data = await response.json();
+		// 			console.log(data);
+		// 		}
+
+		// 		if (response.ok) {
+		// 			const data = await response.json();
+		// 			console.log(data);
+		// 			const files = [data];
+		// 			let images: any = [];
+		// 			files.forEach((image: any, i: number) => {
+		// 				let finalImage: object = {
+		// 					url: image.url,
+		// 					byte_size: round(random(100000, 999999)),
+		// 					tags: [
+		// 						{
+		// 							name: 'waifu',
+		// 							description: 'A female japanese character in anime/manga'
+		// 						},
+		// 						{
+		// 							name: tag,
+		// 							description: 'Tag provided by waifu.pics'
+		// 						},
+		// 						{
+		// 							name: 'waifu.pics',
+		// 							description: 'Tag provided by waifu.pics'
+		// 						}
+		// 					],
+		// 					artist: {
+		// 						name: 'waifu.pics'
+		// 					}
+		// 				};
+		// 				images = [...images, finalImage];
+		// 			});
+
+		// 			return images;
+		// 		}
+		// 		return undefined;
+		// 	} catch (error: any) {
+		// 		console.log(error);
+		// 		// handle error due to internet connections
+		// 		const info = { ...error };
+		// 		if (error.message == 'fetch failed') {
+		// 			const {
+		// 				cause: { errno }
+		// 			} = info;
+		// 			return handleError(error.message, errno);
+		// 		}
+		// 	}
+		// }
 		try {
 			const tags = await getTags();
 			if (tags) {

@@ -10,7 +10,7 @@
 	let isLoading: boolean = false;
 	let tags: any = [];
 	const getNavTags = async () => {
-		if (tags.length == 0) {
+		if (tags.length == 0 || !isArray(tags)) {
 			isLoading = true;
 			const tagData = await getTagsClient();
 			tags = tagData;
@@ -53,25 +53,27 @@
 				<li>
 					<span class="hover:bg-transparent !cursor-default">Tags</span>
 					<ul class="p-2">
-						{#if isLoading}
-							<div class="loading-spinner loading loading-sm" />
-						{:else if isArray(tags)}
-							{#each tags as tag}
-								<li in:fade>
-									<a
-										href={`/tags/${tag}`}
-										class="font-medium capitalize"
-										class:bg-primary={currentString === `/tags/${tag}`}
-										class:bg-opacity-30={currentString === `/tags/${tag}`}
-										class:text-primary={currentString === `/tags/${tag}`}>{tag}</a
-									>
+						{#key isLoading}
+							{#if isLoading}
+								<div class="loading-spinner loading loading-sm" />
+							{:else if isArray(tags)}
+								{#each tags as tag}
+									<li in:fade>
+										<a
+											href={`/tags/${tag}`}
+											class="font-medium capitalize"
+											class:bg-primary={currentString === `/tags/${tag}`}
+											class:bg-opacity-30={currentString === `/tags/${tag}`}
+											class:text-primary={currentString === `/tags/${tag}`}>{tag}</a
+										>
+									</li>
+								{/each}
+							{:else}
+								<li class="p-2 rounded bg-error text-error bg-opacity-10 font-semibold">
+									error occurred
 								</li>
-							{/each}
-						{:else}
-							<li class="p-2 rounded bg-error text-error bg-opacity-10 font-semibold">
-								error occurred
-							</li>
-						{/if}
+							{/if}
+						{/key}
 					</ul>
 				</li>
 				<li>
@@ -107,27 +109,29 @@
 						Tags</span
 					>
 					<ul class="p-3 space-y-2 dropdown-content bg-base-100 !min-w-[13rem] rounded-md">
-						{#if isLoading}
-							<div class="flex justify-center items-center">
-								<div class=" loading w-[0.9rem]" />
-							</div>
-						{:else if isArray(tags)}
-							{#each tags as tag}
-								<li>
-									<a
-										href={`/tags/${tag}`}
-										class="font-medium capitalize"
-										class:bg-primary={currentString === `/tags/${tag}`}
-										class:bg-opacity-30={currentString === `/tags/${tag}`}
-										class:text-primary={currentString === `/tags/${tag}`}>{tag}</a
-									>
+						{#key isLoading}
+							{#if isLoading}
+								<div class="flex justify-center items-center">
+									<div class=" loading w-[0.9rem]" />
+								</div>
+							{:else if isArray(tags)}
+								{#each tags as tag}
+									<li>
+										<a
+											href={`/tags/${tag}`}
+											class="font-medium capitalize"
+											class:bg-primary={currentString === `/tags/${tag}`}
+											class:bg-opacity-30={currentString === `/tags/${tag}`}
+											class:text-primary={currentString === `/tags/${tag}`}>{tag}</a
+										>
+									</li>
+								{/each}
+							{:else}
+								<li class="p-2 rounded bg-error text-error bg-opacity-10 font-semibold">
+									error occurred
 								</li>
-							{/each}
-						{:else}
-							<li class="p-2 rounded bg-error text-error bg-opacity-10 font-semibold">
-								error occurred
-							</li>
-						{/if}
+							{/if}
+						{/key}
 					</ul>
 				</li>
 			</div>

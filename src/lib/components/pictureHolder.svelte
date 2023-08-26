@@ -4,17 +4,17 @@
 	import Eye from '$lib/components/icons/eye.svelte';
 	import User from '$lib/components/icons/user.svelte';
 	import Image from './Image.svelte';
-	import { round } from 'mathjs';
+	import { random, round } from 'mathjs';
 	export let src = '';
 	// export let views: number = 0;
-	export let id: number = 0;
-	export let tags: any[] = [];
-	export let height: number = 0;
-	export let width: number = 0;
-	export let artistName: string = '6ixty3rror';
+	export let id: number = round(random(1999, 9999));
+	export let tags: any[] = ['waifu'];
+	export let height: number = 2000;
+	export let width: number = 1000;
+	export let artistName: string = 'waifu.pics';
 	export let artistTwitter: string = '';
 	export let pictureExtension: string = 'jpg';
-	export let imgSize: number = 0;
+	export let imgSize: number = 0.9;
 	const { useModal, modalAttrs, titleAttrs, triggerAttrs, open } = createModal({
 		portal: null,
 		dismissible: false
