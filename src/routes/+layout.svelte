@@ -11,13 +11,21 @@
 	import '@fontsource/work-sans/900.css';
 	// import '@fontsource/didact-gothic/400.css';
 	import '@fontsource/gochi-hand';
+	import { navigating } from '$app/stores';
+	import LoadingIcon from '$lib/components/loadingIcon.svelte';
 </script>
 
 <div class="app bg-base-300 !h-screen w-screen overflow-x-hidden font-body text-md">
-	<header>
-		<Navbar />
-	</header>
-	<main class="pt-24 !h-full">
-		<slot />
-	</main>
+	{#if $navigating}
+		<div class="w-full h-full grid place-items-center">
+			<LoadingIcon />
+		</div>
+	{:else}
+		<header>
+			<Navbar />
+		</header>
+		<main class="pt-24 !h-full">
+			<slot />
+		</main>
+	{/if}
 </div>

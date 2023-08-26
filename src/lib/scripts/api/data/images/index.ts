@@ -1,3 +1,5 @@
+// import { addWPToTags } from '$lib/scripts/helper/utils';
+
 async function getImagesClient(): Promise<any[] | undefined> {
 	const url = '/api/get-images/';
 	const response = await fetch(url);
