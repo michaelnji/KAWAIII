@@ -45,7 +45,9 @@
 			<p class="mt-3 text-center text-xl max-w-3xl opacity-90">
 				Looking for a source of pretty waifu pics? check out our collection of over <b
 					class="underline underline-offset-1 text-primary"
-					>{formatNum(1000).split('.')[0]}+ saucy images</b
+					>{formatNum(
+						parseInt(data.oppai.length + data.marin.length + data.uniform.length + data.maid.length)
+					)}+ saucy images</b
 				>
 				for the joy of your 👀s
 			</p>
