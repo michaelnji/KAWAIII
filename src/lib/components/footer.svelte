@@ -13,9 +13,10 @@
 	</div>
 	<div>
 		<span class="footer-title">Quick links</span>
-		<a href="/about" class="link link-hover">About</a>
+		<a href="/about" class="link link-hover">about</a>
 		<a href="/tags/marin-kitagawa" class="link link-hover">featured waifu</a>
 		<a href="/tags/oppai" class="link link-hover">oppai</a>
+		<a href="/tags/uniform" class="link link-hover">uniform</a>
 		<a href="https://github.com/michaelnji/kawaiii" class="link link-hover">Github repo</a>
 	</div>
 </footer>

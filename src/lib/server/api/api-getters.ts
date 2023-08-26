@@ -13,16 +13,13 @@ async function getImages(
 			const tags = await getTags();
 			if (tags) {
 				let included_tags: string[] = [];
-				let excluded_tags: string[] = [];
 				const versatileTags = tags;
 				included_tags = versatileTags.filter((e: string) => e === tag);
-
 				const apiUrl = 'https://api.waifu.im/search';
 				const params = {
 					many,
 					height: `<${height}`,
-					width: '<=1600',
-
+					width: '<=1200',
 					included_tags
 				};
 
@@ -37,7 +34,7 @@ async function getImages(
 				if (response.ok) {
 					let finalImages: any[] = [];
 					const data = await response.json();
-					console.log(data.images);
+
 					const { images } = data;
 					images.forEach((image: any) => {
 						let tags = propsToArray('name', image.tags);
@@ -49,7 +46,6 @@ async function getImages(
 				return undefined;
 			}
 		} catch (error: any) {
-			console.log(error);
 			// handle error due to internet connections
 			const info = { ...error };
 			if (error.message == 'fetch failed') {
@@ -65,7 +61,7 @@ async function getImages(
 		const params = {
 			many,
 			height: `<${height}`,
-			width: '<=1600'
+			width: '<=1200'
 		};
 
 		// ts-ignore is needed so typescript ignores type checking for `many` which is a boolean

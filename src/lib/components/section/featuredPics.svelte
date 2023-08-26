@@ -8,7 +8,7 @@
 	let ready: boolean = false;
 	onMount(async () => {
 		imageData = await getImagesByTagClient('marin-kitagawa');
-		// imageData = imageData.filter((e: any, i: number) => i < 5);
+		imageData = imageData.filter((e: any, i: number) => i < 6);
 		ready = true;
 	});
 </script>
