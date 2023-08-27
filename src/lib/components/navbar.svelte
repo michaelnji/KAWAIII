@@ -87,9 +87,9 @@
 				</li>
 			</ul>
 		</div>
-		<div class=" font-bold flex !items-center gap-x-2 text-xl font-head">
+		<a href="/" class=" font-bold flex !items-center gap-x-2 text-xl font-head">
 			<img src={i} alt="kawaiii logo" class="h-[26px] w-[26px]" /> Kawaiii
-		</div>
+		</a>
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal px-1 lg:space-x-2">
