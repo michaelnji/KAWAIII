@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Footer from '$lib/components/footer.svelte';
+	import CTASection from './../../../lib/components/section/CTASection.svelte';
 	import { fade, fly, scale } from 'svelte/transition';
 	import { getImagesByTagClient } from '$lib/scripts/api/data/images';
 	import { onMount } from 'svelte';
@@ -15,7 +17,6 @@
 	function uniqueArray4(a: any) {
 		return [...new Set(a)];
 	}
-	console.log([...uniqueArray4([1, 1, 2, 1, 3, 4, 2, 6, 1, 7, 7, 5, 8])]);
 	async function getData(): Promise<void> {
 		isLoading = true;
 		const data = await getImagesByTagClient(currentTag);
@@ -148,4 +149,14 @@
 			>
 		{/if}
 	</button>
+</section>
+
+<!-- cta waifu pics -->
+<section class="mt-24 px-6 w-full pb-12">
+	<CTASection />
+</section>
+
+<!-- footers -->
+<section class="mt-24 w-full">
+	<Footer />
 </section>
