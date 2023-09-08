@@ -27,7 +27,7 @@ export const load = async () => {
 	if (!isArray(uniform))
 		return uniform ? uniform : { error: 'we seem to have encountered an error' };
 
-	return {
+	return { 
 		oppai,
 		maid,
 		marin,

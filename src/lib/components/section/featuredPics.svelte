@@ -7,7 +7,7 @@
 
 {#if imageData && isArray(imageData)}
 	<h1 id="all" class="text-6xl text-center font-head">
-		#Featured: <small class="font-body font-bold block lg:inline-block">Marin Kitagawa </small>
+		#Featured: <small class="font-head font-bold block lg:inline-block">Marin Kitagawa </small>
 	</h1>
 	<p class="mb-16 mt-1 max-w-xl mx-auto text-base font-medium text-center">
 		One of two main protagonists (alongside Wakana Gojo) in the anime and manga series My Dress-Up

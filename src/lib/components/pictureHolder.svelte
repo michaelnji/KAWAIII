@@ -1,14 +1,11 @@
 <script lang="ts">
 	import { createModal } from '@grail-ui/svelte';
-	import { fade, fly, scale } from 'svelte/transition';
-	import Eye from '$lib/components/icons/eye.svelte';
-	import User from '$lib/components/icons/user.svelte';
+	import { fade, fly } from 'svelte/transition';
 	import Image from './Image.svelte';
-	import { random, round } from 'mathjs';
+	import { round } from 'mathjs';
 	export let src = '';
-	// export let views: number = 0;
 	export let id: number;
-	export let tags: any[] = ['waifu'];
+	export let tags: object[] | any[] = ['waifu'];
 	export let height: number;
 	export let width: number;
 	export let artistName: string = 'waifu.pics';
@@ -59,12 +56,6 @@
 					</div>
 					<span class="text-primary font-bold italic">#{id}</span>
 				</div>
-				<!-- <div class="flex items-center gap-x-2">
-					<div class="flex items-center gap-x-2 font-bold font-head text-sm  text-primary">
-						<Eye />
-						{200}
-					</div>
-				</div> -->
 			</div>
 			<div class="divider my-1" />
 			<div class="flex items-center gap-2 font-head flex-wrap">
@@ -83,6 +74,7 @@
 		</div>
 	</div>
 </div>
+
 {#if $open}
 	<div
 		in:fade
@@ -92,6 +84,7 @@
 			use:useModal
 			{...$modalAttrs}
 			in:fly={{ duration: 700, y: 400 }}
+			out:fade
 			class=" overflow-hidden rounded-3xl md:max-w-[55rem] w-full grid grid-cols-1 md:grid-cols-2 relative"
 		>
 			<img {src} alt="" class="md:rounded-tl-3xl md:rounded-bl-3xl hidden md:inline-block" />
@@ -117,11 +110,6 @@
 
 						<a href={artistTwitter} class=" link text-primary">{artistName}</a>
 					</div>
-					<!-- <div>
-						<p class="font-semibold">Views</p>
-
-						<p class="text-primary">{views}</p>
-					</div> -->
 					<div class="w-full">
 						<p class="font-semibold mb-1">Tags</p>
 						<div class="flex items-center gap-2 flex-wrap">
@@ -146,7 +134,6 @@
 					</div>
 					<div>
 						<p class="font-semibold mb-1">Dimensions</p>
-
 						<div class="badge badge-neutral rounded-md font-bold">{height}px * {width}px</div>
 					</div>
 				</div>
