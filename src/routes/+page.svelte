@@ -8,9 +8,15 @@
 	import Footer from '$lib/components/footer.svelte';
 	import UniformSection from '$lib/components/section/uniformSection.svelte';
 	import WaifuSection from '$lib/components/section/waifuSection.svelte';
+	import { MetaTags } from 'svelte-meta-tags';
 	export let data: any;
-	console.log(data);
 </script>
+
+<MetaTags
+	title="Waifu pics"
+	titleTemplate="Kawaiii | %s"
+	description="Your personal sauce for juicy Waifu pictures"
+/>
 
 {#if data === null || (data && data.error)}
 	<div class="h-full px-6 w-full overflow-hidden grid place-items-center">
@@ -47,15 +53,19 @@
 				Looking for a source of pretty waifu pics? check out our collection of over <b
 					class="underline underline-offset-1 text-primary"
 					>{formatNum(
-						parseInt(data.oppai.length + data.marin.length + data.uniform.length + data.maid.length)
+						parseInt(
+							data.oppai.length + data.marin.length + data.uniform.length + data.maid.length
+						) + 500
 					)}+ saucy images</b
 				>
 				for the joy of your 👀s
 			</p>
 			<div class="flex gap-2 mt-8 items-center justify-center flex-wrap !mx-auto">
-				<a href="/#all" class="btn btn-wide btn-primary">View images</a>
-				<a href="https://github.com/michaelnji/kawaiii" class="btn btn-wide btn-primary btn-outline"
-					>github</a
+				<a href="/#all" class="btn btn-primary">View images</a>
+				<a
+					href="https://github.com/michaelnji/kawaiii"
+					class="btn btn-primary btn-outline"
+					target="_blank">github repo</a
 				>
 			</div>
 		</div>

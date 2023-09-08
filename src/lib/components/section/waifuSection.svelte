@@ -7,7 +7,7 @@
 
 {#if imageData && isArray(imageData)}
 	<h1 class="text-6xl text-center font-head">
-		#Featured: <small class="font-body font-bold block lg:inline-block">Waifu </small>
+		#Featured: <small class="font-head font-bold block lg:inline-block">Waifu </small>
 	</h1>
 	<p class="mb-16 mt-1 max-w-xl mx-auto text-base font-medium text-center">
 		A female anime/manga character.

@@ -70,7 +70,7 @@
 								{/each}
 							{:else}
 								<li class="p-2 rounded bg-error text-error bg-opacity-10 font-semibold">
-									error occurred
+									Error occurred
 								</li>
 							{/if}
 						{/key}
@@ -147,6 +147,10 @@
 		</ul>
 	</div>
 	<div class="navbar-end">
-		<a href="https://github.com/michaelnji/kawaiii" class="btn !text-white btn-ghost"><Github /></a>
+		<a
+			href="https://github.com/michaelnji/kawaiii"
+			target="_blank"
+			class="btn !text-white btn-ghost"><Github /></a
+		>
 	</div>
 </div>

@@ -13,6 +13,7 @@
 		</p>
 		<a
 			href="https://github.com/michaelnji/kawaiii"
+			target="_blank"
 			class="btn md:btn-lg mt-6 w-full md:w-max flex items-center gap-x-2"
 		>
 			<Github /> GITHUB

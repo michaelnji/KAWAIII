@@ -17,6 +17,6 @@
 		<a href="/tags/marin-kitagawa" class="link link-hover">featured waifu</a>
 		<a href="/tags/oppai" class="link link-hover">oppai</a>
 		<a href="/tags/uniform" class="link link-hover">uniform</a>
-		<a href="https://github.com/michaelnji/kawaiii" class="link link-hover">Github repo</a>
+		<a href="https://github.com/michaelnji/kawaiii" class="link link-hover">github repo</a>
 	</div>
 </footer>

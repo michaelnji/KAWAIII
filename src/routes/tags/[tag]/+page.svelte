@@ -9,6 +9,7 @@
 	import { page } from '$app/stores';
 	import type { PageData } from './$types';
 	import { isArray } from 'mathjs';
+	import { MetaTags } from 'svelte-meta-tags';
 	let imageData: any;
 	let isLoading: boolean = false;
 	export let data: any;
@@ -31,7 +32,16 @@
 	}
 </script>
 
-<section class="sm:mt-6 mt-2 px-6 w-full">
+{#if data && !data.error}
+	<MetaTags
+		title={currentTag}
+		titleTemplate="Kawaiii - tags | %s"
+		description={imageData[0].tags[0].description}
+	/>
+{:else}
+	<MetaTags title={currentTag} titleTemplate="Kawaiii | %s" />
+{/if}
+<section class="sm:mt-6 mt-2 px-6 w-full mb-24">
 	<h1 class="font-extrabold text-5xl font-head text-primary md:text-7xl lg:text-8xl text-center">
 		#{currentTag}{#key isArray(imageData)}
 			{#if isArray(imageData)}
@@ -72,7 +82,7 @@
 						{/each}
 					</div>
 				{:else if isLoading}
-					<div class="w-full h-full grid place-items-center">
+					<div class="w-full h-full min-h-[10rem] grid place-items-center">
 						<LoadingIcon />
 					</div>
 				{:else}
@@ -151,12 +161,14 @@
 	</button>
 </section>
 
-<!-- cta waifu pics -->
-<section class="mt-24 px-6 w-full pb-12">
-	<CTASection />
-</section>
+{#if !isLoading}
+	<!-- cta waifu pics -->
+	<section class="my-24 px-6 w-full pb-12">
+		<CTASection />
+	</section>
+{/if}
 
 <!-- footers -->
-<section class="mt-24 w-full">
+<section class="w-full">
 	<Footer />
 </section>
