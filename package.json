@@ -47,7 +47,7 @@
 		"@fontsource/didact-gothic": "^5.0.9",
 		"@fontsource/gochi-hand": "^5.0.8",
 		"@fontsource/grandstander": "^5.0.8",
-		"@fontsource/work-sans": "^5.0.8",
+		"@fontsource/work-sans": "^5.2.7",
 		"mathjs": "^11.9.1"
 	}
 }
