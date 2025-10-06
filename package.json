@@ -43,7 +43,7 @@
 	"type": "module",
 	"dependencies": {
 		"@eirikk/svelte-masonry-layout": "^0.0.6",
-		"@fontsource/aladin": "^5.0.9",
+		"@fontsource/aladin": "^5.2.7",
 		"@fontsource/didact-gothic": "^5.0.9",
 		"@fontsource/gochi-hand": "^5.0.8",
 		"@fontsource/grandstander": "^5.0.8",
